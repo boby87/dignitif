@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="mt-5 px-2 box">
+        <div class="table-responsive">
+
+          <table class="table table-responsive table-borderless">
+            <thead>
+            <tr class="bg-light">
+              <th scope="col">#</th>
+              <th scope="col">Beneficiare</th>
+              <th scope="col" >Montant</th>
+              <th scope="col" >Téléphone</th>
+              <th scope="col"><span>Status</span></th>
+              <th scope="col" >
+                <button class="btn small btn-success" (click)="tout_payer()" *ngIf="!is_loding">payers</button>
+                <div *ngIf="is_loding==true" class="spinner-grow" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let b of beneficiares;let i=index">
+              <td>{{b.id}}</td>
+              <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">{{b.beneficiare}}</span></td>
+              <td>{{b.montant}}<sup>Fcfa</sup></td>
+              <td>{{b.phone}}</td>
+              <td><span class="fw-bolder text-danger">{{b.status}}</span></td>
+              <td>
+                <button (click)="payer(b,i)" *ngIf="index!=i&&!is_loding" class="btn btn-success">Payer</button>
+                <div class="spinner-border m-5" role="status" *ngIf="index==i&&is_loding==true">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container mt-5 box">
+        <div class="table-responsive">
+          <table class="table table-responsive table-borderless">
+            <thead>
+            <tr class="bg-light">
+              <th scope="col">#</th>
+              <th scope="col" >Téléphone</th>
+              <th scope="col" >Montant</th>
+              <th scope="col"><span>Status</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let b of transactions">
+              <td>{{b.id}}</td>
+              <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">{{b.phone}}</span></td>
+              <td>{{b.montant}}<sup>Fcfa</sup></td>
+              <td><span class="fw-bolder text-success">{{b.status}}</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
