@@ -7,7 +7,7 @@ export class TransactionCollection{
   status:string="";
   reference:string="";
   url_direction:string="";
-
+  commentaire:string=""
   titre:string="";
   message:string="";
 }

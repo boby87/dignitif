@@ -33,7 +33,7 @@ export class DonateComponent implements OnInit {
           }else if (data.status=="PENDING"){
             this.collection.message="Merci de confirmer le paiement sur votre mobile et de cliquer sur le button pour continuer";
           }
-        }else if (data.modepayment=="OM"||data.modepayment=="STRIPE"){
+        }else if (data.modepayment=="OM"||data.modepayment=="STRIPE"||data.modepayment=="PAYPAL"){
           this.collection.message="Merci de cliquer sur le button pour continuer l'opération de paiment";
         }
 
@@ -46,7 +46,7 @@ export class DonateComponent implements OnInit {
 
 
   getstatus(collection1: TransactionCollection) {
-    if (collection1.modepayment=="OM"||collection1.modepayment=="STRIPE"){
+    if (collection1.modepayment=="OM"||collection1.modepayment=="STRIPE" ||collection1.modepayment=="PAYPAL"){
       this.is_status=true;
       window.open(collection1.url_direction, "_blank");
       this.collection.message="Merci de cliquer sur le button pour continuer l'opération de paiment sur "+collection1.modepayment;
